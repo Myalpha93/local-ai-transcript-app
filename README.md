@@ -1,5 +1,7 @@
 # AI Transcript App
 
+> Developed by **Hugo Sanabria**
+
 AI-powered voice transcription using **faster-whisper** and automatic text cleaning with local or cloud Large Language Models (**LLMs**). Features a sleek modern web interface (React + Vite) backed by a high-performance **FastAPI** service and **Ollama**.
 
 ---
@@ -134,6 +136,6 @@ WHISPER_LANGUAGE=es
 
 ---
 
-## 📄 License
+## 👤 Author
 
-MIT License.
+- **Hugo Sanabria**
