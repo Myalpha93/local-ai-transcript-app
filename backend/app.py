@@ -28,7 +28,8 @@ async def lifespan(app: FastAPI):
     print("🚀 Starting AI Transcript App...")
 
     service = TranscriptionService(
-        whisper_model=os.getenv("WHISPER_MODEL"),
+        whisper_model=os.getenv("WHISPER_MODEL", "base"),
+        whisper_language=os.getenv("WHISPER_LANGUAGE", "auto"),
         llm_base_url=os.getenv("LLM_BASE_URL"),
         llm_api_key=os.getenv("LLM_API_KEY"),
         llm_model=os.getenv("LLM_MODEL"),
@@ -56,7 +57,8 @@ app.add_middleware(
 async def get_status():
     return {
         "status": "ready" if service else "initializing",
-        "whisper_model": os.getenv("WHISPER_MODEL"),
+        "whisper_model": os.getenv("WHISPER_MODEL", "base"),
+        "whisper_language": os.getenv("WHISPER_LANGUAGE", "auto"),
         "llm_model": os.getenv("LLM_MODEL"),
         "llm_base_url": os.getenv("LLM_BASE_URL"),
     }

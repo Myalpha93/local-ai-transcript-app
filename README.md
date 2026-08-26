@@ -120,7 +120,12 @@ LLM_API_KEY=ollama
 LLM_MODEL=gemma3:4b
 
 # Whisper Speech-to-Text Model
-WHISPER_MODEL=base.en
+# 'base' or 'small' for Multilingual (Spanish & English), or 'base.en' for English-only
+WHISPER_MODEL=base
+
+# Transcription Language
+# 'es' for Spanish, 'en' for English, or 'auto' for automatic language detection
+WHISPER_LANGUAGE=es
 ```
 
 ### Supported Providers

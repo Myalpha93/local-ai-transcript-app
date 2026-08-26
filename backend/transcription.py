@@ -18,9 +18,22 @@ class TranscriptionService:
     """Uses OpenAI-compatible API, works with any provider (Ollama, OpenAI, LM Studio, etc.)."""
 
     def __init__(
-        self, whisper_model: str, llm_base_url: str, llm_api_key: str, llm_model: str
+        self,
+        whisper_model: str,
+        whisper_language: str | None,
+        llm_base_url: str,
+        llm_api_key: str,
+        llm_model: str,
     ):
-        print(f"🔄 Loading Whisper model '{whisper_model}'...")
+        # Configure language: 'auto' or None enables auto-detection; 'es', 'en', etc. forces specific language
+        self.whisper_language = (
+            None
+            if not whisper_language or whisper_language.strip().lower() == "auto"
+            else whisper_language.strip().lower()
+        )
+        print(
+            f"🔄 Loading Whisper model '{whisper_model}' (language: {self.whisper_language or 'auto-detect'})..."
+        )
         self.whisper = WhisperModel(
             whisper_model,
             device="auto",  # Auto-detect: Metal (Mac), CUDA (NVIDIA), or CPU
@@ -40,10 +53,14 @@ class TranscriptionService:
             print(f"   Make sure your LLM server is running at {llm_base_url}")
 
     def transcribe(self, audio_file):
-        print("🔄 Transcribing...")
+        lang_display = self.whisper_language or "auto-detect"
+        print(f"🔄 Transcribing (language: {lang_display})...")
 
         segments, info = self.whisper.transcribe(
-            audio_file, beam_size=5, language="en", condition_on_previous_text=False
+            audio_file,
+            beam_size=5,
+            language=self.whisper_language,
+            condition_on_previous_text=False,
         )
 
         text = " ".join([segment.text for segment in segments]).strip()
