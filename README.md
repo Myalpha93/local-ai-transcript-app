@@ -1,7 +1,5 @@
 # AI Transcript App
 
-> Developed by **Hugo Sanabria**
-
 AI-powered voice transcription using **faster-whisper** and automatic text cleaning with local or cloud Large Language Models (**LLMs**). Features a sleek modern web interface (React + Vite) backed by a high-performance **FastAPI** service and **Ollama**.
 
 ---
@@ -133,12 +131,6 @@ WHISPER_LANGUAGE=es
 - **Ollama:** Set `LLM_BASE_URL=http://localhost:11434/v1` (or `http://ollama:11434/v1` inside Docker)
 - **LM Studio:** Set `LLM_BASE_URL=http://localhost:1234/v1`
 - **OpenAI:** Set `LLM_BASE_URL=https://api.openai.com/v1`, `LLM_API_KEY=your_key`, `LLM_MODEL=gpt-4o-mini`
-
----
-
-## 👤 Author
-
-- **Hugo Sanabria**
 
 ---
 

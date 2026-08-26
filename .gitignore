@@ -54,13 +54,7 @@ dist/
 frontend/node_modules/
 frontend/dist/
 
-
-.claude
-tmp
+# Temporary & tooling
+.claude/
+tmp/
 CLAUDE.md
-
-*exercise.py
-STUDENT_PROFILE.md
-exercise/STUDENT_PROFILE.md
-exercise/python/*.py
-exercise/typescript/*.ts
