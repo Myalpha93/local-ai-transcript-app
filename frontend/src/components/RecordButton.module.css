@@ -1,0 +1,112 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-text);
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-md);
+  transition:
+    transform var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+  min-height: 48px;
+  min-width: 200px;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button.recording {
+  background: var(--color-error);
+  color: #ffffff;
+  border-color: rgba(239, 68, 68, 0.4);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.button.recording:hover:not(:disabled) {
+  background: var(--color-error-hover);
+}
+
+.button.processing {
+  background: var(--color-surface-card);
+  color: var(--color-text-secondary);
+  border-color: var(--color-border);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  animation: none;
+}
+
+.button.processing .icon {
+  animation: spin 1s linear infinite;
+}
+
+.hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-normal);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.88;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .button {
+    min-width: 170px;
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--font-size-sm);
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+}

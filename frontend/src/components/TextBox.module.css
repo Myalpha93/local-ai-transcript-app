@@ -1,0 +1,125 @@
+.wrapper {
+  position: relative;
+}
+
+.textBox {
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  width: 100%;
+}
+
+.textBox.input {
+  background: var(--color-surface-input);
+  border: 1px solid var(--color-border);
+  padding: 0;
+}
+
+.textBox.input:hover {
+  border-color: var(--color-border-hover);
+}
+
+.textBox.input:focus-within {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.05);
+}
+
+.textBox.display {
+  background: var(--color-surface-input);
+  border: 1px solid var(--color-border);
+  overflow-y: auto;
+}
+
+.textBox.display:hover {
+  border-color: var(--color-border-hover);
+}
+
+.textBox.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-sans);
+  line-height: var(--line-height-relaxed);
+  resize: vertical;
+  min-height: 80px;
+}
+
+.textarea::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.text {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+.copyButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  margin-top: var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: #18181b;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.copyButton:hover {
+  background: #27272a;
+  color: var(--color-text-primary);
+  border-color: var(--color-border-hover);
+}
+
+.copyButton:active {
+  transform: translateY(0);
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 640px) {
+  .textBox {
+    padding: var(--space-3);
+  }
+
+  .textarea {
+    font-size: var(--font-size-sm);
+    min-height: 70px;
+  }
+
+  .text {
+    font-size: var(--font-size-sm);
+  }
+
+  .copyButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

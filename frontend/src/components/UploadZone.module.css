@@ -1,0 +1,120 @@
+.container {
+  margin-bottom: var(--space-4);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: var(--space-4) 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.divider span {
+  padding: 0 var(--space-3);
+  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: var(--color-surface-base);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    transform var(--transition-fast);
+  min-height: 130px;
+}
+
+.zone:hover:not(.processing) {
+  background: var(--color-surface-card-hover);
+  border-color: var(--color-border-hover);
+}
+
+.zone.dragging {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--color-border-focus);
+  border-style: solid;
+  transform: scale(1.01);
+}
+
+.zone.processing {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3);
+  transition: color var(--transition-fast);
+}
+
+.zone:hover:not(.processing) .icon {
+  color: var(--color-text-primary);
+}
+
+.title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.formats {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-1) var(--space-3);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .zone {
+    padding: var(--space-4);
+    min-height: 110px;
+  }
+
+  .icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .title {
+    font-size: var(--font-size-sm);
+  }
+
+  .subtitle {
+    font-size: var(--font-size-xs);
+  }
+}
